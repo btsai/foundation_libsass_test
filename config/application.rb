@@ -53,8 +53,18 @@ module FoundationLibsassTest
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
+    #**************************************************************
+    # ASSET PIPELINE
+    #**************************************************************
+
     # Enable the asset pipeline
     config.assets.enabled = true
+
+    # Add any new asset paths here (for sprockets and relative path lookup in manifest files)
+    # DON'T put this in 'development' mode, as it will force Sprockets and the Rails asset pipeline to also try to
+    # compile on page load, which is slow and defeats the purpose of doing it with Libsass and Grunt.
+    # We'll put this instead in the stable/testing/production configs so that precompiling will work properly.
+    # config.assets.paths << 'app/scss/'
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
@@ -72,12 +82,12 @@ module FoundationLibsassTest
     config.assets.initialize_on_precompile = false
 
     # default precompiler matcher is this:
-    # all non js,css files + application.js|css.
-    # note that anything that compiles to js, css is counted as such (eg .coffee, .scss)
     # [
     #   Proc.new { |path, fn| fn =~ /app\/assets/ && !%w(.js .css).include?(File.extname(path)) },
     #   /application.(css|js)$/
     # ]
+    # this gets all non js,css files + application.js|css.
+    # note that anything that compiles to js, css is counted as a js or css (eg .coffee, .scss)
 
     # to get individually called js and css files copied over from the app/assets dir to public/assets on precompile,
     # you need to add their paths here.
@@ -101,8 +111,7 @@ module FoundationLibsassTest
     # note that all files that should be included in application.js and don't need individual precompiling
     # should go in app/assets/stylesheets/precompiles.
     config.assets.precompile += Dir.glob('app/scss/*.{css,css.erb,scss}').map{ |path|
-      puts "path: #{path}"
-      path.gsub('app/assets/', '').gsub('.erb', '')
+      path.gsub('app/scss/', '').gsub('.erb', '')
     }
 
     # VENDOR ASSETS

@@ -26,6 +26,7 @@ module.exports = function(grunt) {
         // Dictionary of files. Each scss file to be compiled must go here.
         // 'destination': 'source'
         files: scssFileMapping(),
+        // Note: you can also manually map each file for the sass engine (this is the default setup).
         // files: {
         //   'public/assets/application.css': 'app/scss/application.css.scss',
         // },

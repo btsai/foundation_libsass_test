@@ -20,6 +20,9 @@ FoundationLibsassTest::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # NOTE: Adding in the app/scss path so that it will be included in the precompile rake task
+  config.assets.paths << 'app/scss/'
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
