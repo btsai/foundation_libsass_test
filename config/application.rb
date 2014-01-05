@@ -100,8 +100,9 @@ module FoundationLibsassTest
     # app/assets/stylesheets root level - include all files.
     # note that all files that should be included in application.js and don't need individual precompiling
     # should go in app/assets/stylesheets/precompiles.
-    config.assets.precompile += Dir.glob('app/assets/stylesheets/*.{css,css.erb}').map{ |path|
-      path.gsub('app/assets/stylesheets/', '').gsub('.erb', '')
+    config.assets.precompile += Dir.glob('app/scss/*.{css,css.erb,scss}').map{ |path|
+      puts "path: #{path}"
+      path.gsub('app/assets/', '').gsub('.erb', '')
     }
 
     # VENDOR ASSETS

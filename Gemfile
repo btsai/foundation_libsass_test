@@ -6,6 +6,9 @@ gem 'foundation-rails', '5.0.2.0'
 gem 'mysql2', '0.3.11'
 gem 'json'
 
+gem 'foundation-rails', '5.0.2.0'   # css and js responsive framework; need this outside of the assets group
+gem 'jquery-rails'
+
 # FOR LIVERELOAD
 group :development do
   gem 'guard', '>= 2.2.2',       :require => false
@@ -25,8 +28,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

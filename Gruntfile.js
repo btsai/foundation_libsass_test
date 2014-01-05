@@ -27,6 +27,9 @@ module.exports = function(grunt) {
         // Note: This is one method, but we're not using grunt-watch livereload,
         // as it reloads the whole page, not just style injection
         // options: { livereload: true },
+        options: {
+          spawn: false,
+        },
       }
     }
   });

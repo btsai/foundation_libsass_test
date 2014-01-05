@@ -4,8 +4,8 @@
 */
 
 @import "foundation/functions";
-@import "foundation_and_overrides.css.scss";
+@import "precompiles/application/foundation_and_overrides.css.scss";
 @import "foundation";
-@import "custom_mixins";
-@import "base.css.scss";
+@import "precompiles/application/custom_mixins";
+@import "precompiles/application/base.css.scss";
 

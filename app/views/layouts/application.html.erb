@@ -13,10 +13,13 @@
     <title>Lib-Sass Test</title>
 
     <%= stylesheet_link_tag('application') %>
+    <%= javascript_include_tag('jquery_modernizr') %>
     <%= yield(:head) %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= @body_class %>">
     <%= yield %>
+    <%= javascript_include_tag("application") %>
+    <%= yield(:bottom) %>
   </body>
 </html>

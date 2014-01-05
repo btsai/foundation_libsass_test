@@ -1,0 +1,31 @@
+(function ($) {
+  var searchButton, keywordField;
+
+  function init(){
+    keywordField = $('#search_keyword');
+    searchButton = $('#search_button');
+    initializeForm();
+  }
+
+  function initializeForm(){
+      searchButton.click(findEmployee);
+      keywordField.keyup(function(e){
+        if (e.keyCode == 13){ // enter
+          findEmployee();
+        }
+      })
+    }
+
+  function findEmployee(){
+    var keyword = keywordField.val();
+    if (keyword.trim() == ''){
+      alert(searchButton.attr('blank_warning'));
+      return;
+    }
+    location.href = keywordField.attr('search_path').replace('keyword', keyword)
+  }
+
+  <% #initializing the searchbar from within this file -%>
+  init();
+
+})(jQuery);
