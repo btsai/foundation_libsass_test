@@ -1,0 +1,2 @@
+This folder has been set up separately to hold the sass assets, so that the Rails pipeline and Sprockets doesn't try to compile the Sass.
+Sprockets Sass compiling is too slow to be useful, so we use Libsaas and Grunt tasks instead.

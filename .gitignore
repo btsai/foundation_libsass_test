@@ -1,0 +1,5 @@
+.DS_Store
+.bowerrc
+public/assets
+node_modules
+tmp

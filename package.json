@@ -1,0 +1,13 @@
+{
+  "name": "foundation-libsass-template",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-sass": "~0.8.0"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "http://github.com/workcloud/workcloud.git"
+  }
+}

@@ -1,0 +1,226 @@
+
+  <nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/home"><span class="work">work</span><span class="cloud">cloud</span></a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="/home"><span></span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input id="search_keyword" name="search_keyword" placeholder="名前又はメール" search_path="/search/keyword" type="text" value="" />
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" blank_warning="検索キーワードがありません。" class="alert button" id="search_button">検索</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider hide-for-small"></li>
+      <li class="has-dropdown not-click hide-for-small">
+        <a href="#">
+          <i class="icon-user"></i>ブライアンさん
+          <i class="icon-caret-down"></i>
+        </a>
+        <ul class="dropdown">
+          <li>
+              <a href="/locale/en" class="select-lang">English</a>
+          </li>
+          <li class="divider"></li>
+          <li><a href="/logout" data-method="delete" rel="nofollow" tabindex="-1">ログアウト</a></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+  <div class="row">
+    <div class="large-10 push-2 columns">
+      <div class="columns">
+  <h3 class="title">ダッシュボード</h3>
+</div>
+
+<div class="large-5 large-push-7 columns">
+    <div id="time_entry_panel">
+  <h5>就業の打刻</h5>
+  <div class="panel">
+    <div class="">
+      <select href="/timesheets/date-string/entry_panel" id="timesheet_date_selector" name="timesheet_date_selector"><option value="2014-01-01">2014年01月01日 (水)</option>
+<option value="2014-01-02" selected="selected">2014年01月02日 (木)</option></select>
+    </div>
+      <table class="timesheet_entry">
+        <tbody>
+            <tr>
+  <td>出社時間</td>
+    <td class="timepicker">
+      <form accept-charset="UTF-8" action="/timesheets/2014-01-02/work_hours/in/1/manual?return=entry_panel" class="timesheet_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="EhanhEY+PIE7qRqknFJ+FxjzKEZr1RgpJ5hRkJyhGPE=" /></div>        <select class="" id="work_hour_start_time_hour" name="work_hour[start_time_hour]"><option value="">---</option>
+<option value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12" selected="selected">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option></select> :
+<select class="" id="work_hour_start_time_minute" name="work_hour[start_time_minute]"><option value="">---</option>
+<option value="00">00</option>
+<option value="05">05</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="25">25</option>
+<option value="30">30</option>
+<option value="35">35</option>
+<option value="40">40</option>
+<option value="45" selected="selected">45</option>
+<option value="50">50</option>
+<option value="55">55</option></select>
+
+        <br/>
+        <input class="button tiny" name="commit" type="submit" value="チェック・イン" />
+</form>    </td>
+</tr>
+
+            <tr>
+  <td>退社時間</td>
+    <td class="timepicker">
+      <form accept-charset="UTF-8" action="/timesheets/2014-01-02/work_hours/out/1/manual?return=entry_panel" class="timesheet_form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="EhanhEY+PIE7qRqknFJ+FxjzKEZr1RgpJ5hRkJyhGPE=" /></div>        <select class="" id="work_hour_end_time_hour" name="work_hour[end_time_hour]"><option value="">---</option>
+<option value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12" selected="selected">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option></select> :
+<select class="" id="work_hour_end_time_minute" name="work_hour[end_time_minute]"><option value="">---</option>
+<option value="00">00</option>
+<option value="05">05</option>
+<option value="10">10</option>
+<option value="15">15</option>
+<option value="20">20</option>
+<option value="25">25</option>
+<option value="30">30</option>
+<option value="35">35</option>
+<option value="40">40</option>
+<option value="45" selected="selected">45</option>
+<option value="50">50</option>
+<option value="55">55</option></select>
+
+        <br/>
+        <input class="button tiny" name="commit" type="submit" value="チェック・アウト" />
+</form>    </td>
+</tr>
+
+          <tr>
+            <td>勤務時間</td>
+            <td>0.0</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+  <h5>直近のカレンダー</h5>
+<fieldset class="calendar_panel_list">
+  <h6>直近の不在者</h6>
+    <div>直近の不在者はいません</div>
+
+    <hr/>
+    <h6>直近の休・祭日</h6>
+    <dl>
+        <dt>01月02日</dt>
+        <dd>年末年始休日</dd>
+        <dt>01月03日</dt>
+        <dd>年末年始休日</dd>
+    </dl>
+</fieldset>
+
+</div>
+
+<div class="large-7 large-pull-5 columns">
+  <div class="">
+  <h5>通知とアナウンス</h5>
+  <div class="notices">
+      <dl>
+        <dt>今は通知がありませんが、これから勤怠・終了の申請と承認が行われると、その通知がこちらに表示されます。</dt>
+      </dl>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    <div class="large-2 pull-10 columns">
+      <nav>
+  <ul class="side-nav">
+    <li class="header"><span>社員機能</span></li>
+    <li class="active"><a href="/home">ホーム</a></li>
+    <li><a href="/profile/personal_details">プロフィール</a></li>
+    <li><a href="/timesheets/2014-01">就業管理</a></li>
+    <li><a href="/time_offs">勤怠管理</a></li>
+    <li><a href="/employees">社員名簿</a></li>
+
+      <li class="header"><span>上長機能</span></li>
+      <li><a href="/approvals/leave">承認管理</a></li>
+
+      <li class="header"><span>管理機能</span></li>
+      <li><a href="/admin/company/settings">会社管理</a></li>
+      <li><a href="/admin/employees">社員管理</a></li>
+  </ul>
+</nav>
+
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <footer>
+      <p>&copy; 2013 <a href="/about">workcloud.jp</a></p>
+    </footer>
+
+
+  </div>
+
+  <div id="body_modal_small" class="reveal-modal small" data-reveal></div>
+  <div id="body_modal_large" class="reveal-modal large" data-reveal></div>

@@ -1,0 +1,26 @@
+This bower_components folder was set up by the task recommended here:
+
+* http://foundation.zurb.com/docs/sass.html
+<pre>
+  $> foundation new MY_PROJECT --libsass
+</pre>
+
+In addition to creating the bower_components folder, these are also installed:
+Gruntfile.js
+package.json
+bower.json
+css
+├── # we're using the rails setup + app/scss instead
+js
+├── # we're using the rails asset pipeline setup instead
+node_modules
+├── grunt
+├── grunt-contrib-watch
+├── grunt-sass
+├── node-sass
+bower_components
+├── foundation
+├── jquery
+├── modernizr
+
+We aren't really using bower for much, except for this initial installation, so perhaps at some point in the future we can remove the extra stuff.
