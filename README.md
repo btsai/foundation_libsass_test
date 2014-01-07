@@ -68,6 +68,48 @@ See the block under 'ASSET PIPELINE PRECOMPILING' in this project's [config/appl
   config.assets.paths << 'app/scss/'
   ```
 
+#### Configuring application.css.scss
+
+Normally with the Rails pipeline, if you have the following manifest set up at the top of your application.css.scss file, Rails/Sprockets will deliver each file individually, and then compile it together in one file when precompiling.
+```
+/*
+# This is a manifest file that'll be compiled into application.css by Sprockets/Rails pipeline, which will include all the files listed below.
+#
+# Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+# or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+#
+# You're free to add application-wide styles to this file and they'll appear at the top of the
+# compiled file, but it's generally better to create a new file per style scope.
+#
+# USAGE NOTES:
+# if an individual sass file uses variables defined in another file, you have to @import it.
+# having everything imported in this file doesn't automatically instantiate the variables in the individual file
+# when precompiling assets.
+#
+# IMPORTANT NOTE: requires don't work with libsass - this is a Rails/Sprockets thing.
+*= require_self
+*= require foundation
+*= require_directory ./precompiles/application
+*= require_tree  // turning this off - don't need to include everything
+*/
+
+```
+Serving each file individually has the benefit of allowing you to see which file the CSS code actually lives in.
+
+However, Libsass does not do this as it is just a straight compiler, so all of the requires are ignored, and you must use @import to get the other files to compile into application.css.
+```
+@import 'foundation';
+@import "precompiles/application/scss/custom_mixins";
+@import 'precompiles/application/scss/base';
+@import 'precompiles/application/scss/pc_base';
+@import 'precompiles/application/scss/mobile_base';
+@import 'precompiles/application/scss/fonts';
+```
+
+Lastly, if you @import a straight CSS file, this will only insert a standard CSS @import tag into the application.css file, which means that imported CSS file must also be present for download in the assets file, which defeats the purpose of consolidating files.
+
+You will need to change the extension of the target CSS file to .scss so that it will actually get compiled into application.css, not just as an @import tag.
+
 
 ### Running Libsass and LiveReload
 

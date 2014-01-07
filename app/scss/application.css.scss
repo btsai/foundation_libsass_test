@@ -1,6 +1,7 @@
 /*
- *= require_self
- *= require foundation
+ * IMPORTANT NOTE: requires don't work with libsass - this is a Rails/Sprockets thing.
+ *  require_self
+ *  require foundation
 */
 
 @import "foundation/functions";
