@@ -36,6 +36,7 @@ The only page in this project is the home/show page which uses Foundation js and
 * Rename the app/assets/stylesheets folder to app/scss (scss files go in that folder).
 * Keep all of the scss files you want complied to css in top level of that folder.
 * Move all import-only, require-only scss files into a subfolder; I use 'precompiles'.
+
   This is because the application.rb setting for config.assets.precompile automatically takes anything in the top level of the app/scss folder and will precompile it (scss or css), but will ignore all subfolders.
   Supposedly, the pipeline compiler is supposed to also ignore all files that are prefixed with '_', but I recommend using the subfolder method because it makes it easy to see which files you should be expected to see compiled into public/assets.
 * The final structure looks like this:
@@ -83,13 +84,13 @@ You'll need to have the following items installed before continuing.
 
 Add these files (all relative to the project root):
 * /package.json
-  See file details [here](package.json).
+
   This defines for Node/NPM what node_modules are required.
   Any new grunt functions you add to the project have to be also added here, not just referenced in Gruntfile.js.
   We have adjusted .gitignore not to include the /node_modules folder, since you will be able to generate this when you run `npm install`
 
 * /Gruntfile.js
-  See file details [here](Gruntfile.js).
+
   This is the definition file for the Grunt tasks. When you run `grunt`, it will read this file.
   Note that if your Sass file names are like application.scss (not .css.scss), you will need to change the replace method in line 14.
 
@@ -128,7 +129,7 @@ public
 Additional gems (note that this is needed only for development):
 * Add this to your Gemfile:
 
-  ```
+  ```ruby
   group :development do
     # FOR LIVERELOAD
     gem 'guard', '>= 2.2.2',       :require => false
@@ -141,13 +142,11 @@ Additional gems (note that this is needed only for development):
 * Run `bundle install`
 
 Add this file (open it up to see more detailed comments):
-* /Guardfile. 
-  See file details [here](Guardfile).
-  This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
+* /Guardfile. This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
 
 Add a reference to Rack::LiveReload, again only for development.
 * In development.rb, add:
-  ```
+  ```ruby
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   ```
 
