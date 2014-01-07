@@ -83,12 +83,13 @@ You'll need to have the following items installed before continuing.
 
 Add these files (all relative to the project root):
 * /package.json
+  See file details [here](package.json).
   This defines for Node/NPM what node_modules are required.
   Any new grunt functions you add to the project have to be also added here, not just referenced in Gruntfile.js.
   We have adjusted .gitignore not to include the /node_modules folder, since you will be able to generate this when you run `npm install`
 
 * /Gruntfile.js
-  See file details [here](blob/master/Gruntfile.js)
+  See file details [here](Gruntfile.js).
   This is the definition file for the Grunt tasks. When you run `grunt`, it will read this file.
   Note that if your Sass file names are like application.scss (not .css.scss), you will need to change the replace method in line 14.
 
@@ -140,7 +141,9 @@ Additional gems (note that this is needed only for development):
 * Run `bundle install`
 
 Add this file (open it up to see more detailed comments):
-* /Guardfile. This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
+* /Guardfile. 
+  See file details [here](Guardfile).
+  This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
 
 Add a reference to Rack::LiveReload, again only for development.
 * In development.rb, add:
