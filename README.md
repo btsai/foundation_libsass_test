@@ -88,6 +88,7 @@ Add these files (all relative to the project root):
   We have adjusted .gitignore not to include the /node_modules folder, since you will be able to generate this when you run `npm install`
 
 * /Gruntfile.js
+  See file details [here](blob/master/Gruntfile.js)
   This is the definition file for the Grunt tasks. When you run `grunt`, it will read this file.
   Note that if your Sass file names are like application.scss (not .css.scss), you will need to change the replace method in line 14.
 
