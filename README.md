@@ -99,6 +99,11 @@ Download and install the node_modules defined in package.json:
   npm install
   ```
 
+Install grunt:
+  ```
+  npm install grunt
+  ```
+
 Run one of the two in a separate terminal:
 * `grunt`
 * `grunt --verbose` - I like to use this as i can see/confirm what is being watched.
