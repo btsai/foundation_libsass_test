@@ -54,16 +54,16 @@ The only page in this project is the home/show page which uses Foundation js and
 #### Asset Pipeline Settings
 
 You will at a minimum need to set these for your scss/css assets:
-* In config/application.rb
+* In [config/application.rb](config/application.rb)
 
   ```
   config.assets.precompile += Dir.glob('app/scss/*.{css,css.erb,scss}').map{ |path|
     path.gsub('app/scss/', '').gsub('.erb', '')
   }
   ```
-See the block under 'ASSET PIPELINE PRECOMPILING' in this project's config/application.rb
+See the block under 'ASSET PIPELINE PRECOMPILING' in this project's [config/application.rb](config/application.rb).
 
-* In production.rb (and testing.rb, stable.rb if you are not compiling assets on the fly)
+* In [config/production.rb](config/production.rb) (and testing.rb, stable.rb if you are not compiling assets on the fly)
   ```
   config.assets.paths << 'app/scss/'
   ```
@@ -76,20 +76,20 @@ See the block under 'ASSET PIPELINE PRECOMPILING' in this project's config/appli
 You'll need to have the following items installed before continuing.
 
 * [Node.js](http://nodejs.org): Use the installer provided on the NodeJS website.
-* [Grunt](http://gruntjs.com/): Run `[sudo] npm install -g grunt-cli`
-* [Bower](http://bower.io): Run `[sudo] npm install -g bower`
+* [Grunt](http://gruntjs.com/): Run `sudo npm install -g grunt-cli`
+* [Bower](http://bower.io): Run `sudo npm install -g bower`
 
 
 #### Running Lib-Sass and Grunt to Compile Sass
 
 Add these files (all relative to the project root):
-* /package.json
+* [package.json](package.json)
 
   This defines for Node/NPM what node_modules are required.
   Any new grunt functions you add to the project have to be also added here, not just referenced in Gruntfile.js.
   We have adjusted .gitignore not to include the /node_modules folder, since you will be able to generate this when you run `npm install`
 
-* /Gruntfile.js
+* [Gruntfile.js](Gruntfile.js)
 
   This is the definition file for the Grunt tasks. When you run `grunt`, it will read this file.
   Note that if your Sass file names are like application.scss (not .css.scss), you will need to change the replace method in line 14.
@@ -124,10 +124,10 @@ public
    |- straight.css
 ```
 
-#### Running Guard Live Reload to Automatically Reload Changed CSS Assets
+#### Automatically Reload CSS Assets with Guard Live Reload
 
 Additional gems (note that this is needed only for development):
-* Add this to your Gemfile:
+* Add this to your [Gemfile](Gemfile):
 
   ```ruby
   group :development do
@@ -142,10 +142,12 @@ Additional gems (note that this is needed only for development):
 * Run `bundle install`
 
 Add this file (open it up to see more detailed comments):
-* /Guardfile. This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
+* [Guardfile](Guardfile)
+
+This file defines what files to watch. Depending on the type of file, either just that asset will be reloaded, or the entire page will be refreshed.
 
 Add a reference to Rack::LiveReload, again only for development.
-* In development.rb, add:
+* In [config/development.rb](config/development.rb), add:
   ```ruby
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   ```
@@ -181,8 +183,11 @@ But guard doesn't like being in job mode - it stops listening. So for the time b
 ### Reference Links
 
 Good reference link to help describe the LiveReload and Guard process:
-  * http://blog.55minutes.com/2013/01/lightning-fast-sass-reloading-in-rails-32/
+* http://blog.55minutes.com/2013/01/lightning-fast-sass-reloading-in-rails-32/
 
-Libsass project:
-  * https://github.com/hcatlin/libsass
+Projects:
+* [Libsass](https://github.com/hcatlin/libsass)
+* [Node.js](http://nodejs.org)
+* [Grunt](http://gruntjs.com)
+* [Bower](http://bower.io)
 
