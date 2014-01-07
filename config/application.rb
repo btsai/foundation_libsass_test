@@ -15,6 +15,10 @@ module FoundationLibsassTest
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    #**************************************************************
+    # RAILS BASIC STUFF
+    #**************************************************************
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
@@ -35,6 +39,10 @@ module FoundationLibsassTest
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
+
+    #**************************************************************
+    # SECURITY
+    #**************************************************************
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -89,33 +97,32 @@ module FoundationLibsassTest
     # this gets all non js,css files + application.js|css.
     # note that anything that compiles to js, css is counted as a js or css (eg .coffee, .scss)
 
-    # to get individually called js and css files copied over from the app/assets dir to public/assets on precompile,
-    # you need to add their paths here.
-    # this config requiires the file path, not the erb or scss file names
-    # 1. main app/assets folder.
-    #    note we don't push out everything in the assets folder, but actually one down.
-    #    put all desired js/css files for individual precompiling in the app/assets/for_release folders.
-    #    note that the tag helper paths are rooted at app/assets/for_release,
-    #    so you'll need to add the javascripts/ and stylesheets/ folder prefixes to the paths.
-
-    # JAVASCRIPT FILES
-    # app/assets/javascripts root level - include all files.
-    # note that all files that should be included in application.js and don't need individual precompiling
+    # JAVASCRIPT ASSETS
+    # app/assets/javascripts root level - include all files at the top level.
+    # Setting this means we don't have to manually add to the precompile path.
+    # Note that all files that should be included in application.js and don't need individual precompiling
     # should go in app/assets/javascripts/precompiles.
     config.assets.precompile += Dir.glob('app/assets/javascripts/*.{js,js.erb}').map{ |path|
       path.gsub('app/assets/javascripts/', '').gsub('.erb', '')
     }
 
-    # STYLESHEET FILES
-    # app/assets/stylesheets root level - include all files.
-    # note that all files that should be included in application.js and don't need individual precompiling
-    # should go in app/assets/stylesheets/precompiles.
+    # STYLESHEET ASSETS
+    # app/scss root level - include all files at the top level.
+    # Note that all files that should be included in application.css and don't need individual precompiling
+    # should go in app/scss/precompiles.
+    # Setting this means we don't have to manually add to the precompile path.
+    # any straight css or scss files that need individual packaging should go at the base folder level of app/scss.
+    # NOTE: we are moving all of the stylesheet assets OUT of app/assets, as Sprocket and the Rails asset pipeline
+    # try to compile these when we refresh the page - which results in very slow response (Sass compile speed is poor with Rails).
+    # We are depending on Libsass & Grunt to do the on-the-fly compiling for us, putting the compiled assets into
+    # public/assets directly.
     config.assets.precompile += Dir.glob('app/scss/*.{css,css.erb,scss}').map{ |path|
       path.gsub('app/scss/', '').gsub('.erb', '')
     }
 
     # VENDOR ASSETS
-    # will precompile all assets in the vendor folder
+    # Will precompile all assets in the vendor folder
+    # Setting this means we don't have to manually add to the precompile path.
     config.assets.precompile += Dir.glob('vendor/assets/**/*.{js,js.erb,css,css.erb}').map{ |path|
       path.gsub(/vendor\/assets\/.+?\//, '').gsub('.erb', '')
     }

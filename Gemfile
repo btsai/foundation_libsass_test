@@ -9,8 +9,8 @@ gem 'json'
 gem 'foundation-rails', '5.0.2.0'   # css and js responsive framework; need this outside of the assets group
 gem 'jquery-rails'
 
-# FOR LIVERELOAD
 group :development do
+  # FOR LIVERELOAD
   gem 'guard', '>= 2.2.2',       :require => false
   gem 'guard-livereload',        :require => false
   gem 'rack-livereload'
