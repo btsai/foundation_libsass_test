@@ -195,7 +195,7 @@ This file defines what files to watch. Depending on the type of file, either jus
 
 Add a reference to Rack::LiveReload, again only for development.
 * In [config/development.rb](config/development.rb), add:
-  ```ruby
+  ```
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
   ```
 
@@ -210,6 +210,23 @@ You should see Guard start up and the livereload monitor should begin listening 
 10:46:42 - INFO - Reloading browser: public/assets/another.css
 10:46:42 - INFO - Reloading browser: public/assets/application.css
 [1] LiveReload guard(main)>
+```
+
+At the very top of your pages, livereload should be inserting the following (just after the <head> tag).
+```
+<script type="text/javascript">
+    WEB_SOCKET_SWF_LOCATION = "/__rack/WebSocketMain.swf";
+
+  </script>
+  <script type="text/javascript" src="/__rack/swfobject.js"></script>
+  <script type="text/javascript" src="/__rack/web_socket.js"></script>
+
+<% # this should be automatically injected by the LiveReload middleware but it's not working so manually putting here %>
+<script type="text/javascript">
+  RACK_LIVERELOAD_PORT = 35729;
+</script>
+<script type="text/javascript" src="http://localhost:35729/livereload.js?"></script>
+
 ```
 
 #### Running It All Together
