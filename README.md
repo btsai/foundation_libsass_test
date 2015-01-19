@@ -212,7 +212,7 @@ You should see Guard start up and the livereload monitor should begin listening 
 [1] LiveReload guard(main)>
 ```
 
-At the very top of your pages, livereload should be inserting the following (just after the <head> tag).
+At the very top of your pages, livereload should be inserting the following (just after the `<head>` tag).
 ```
 <script type="text/javascript">
     WEB_SOCKET_SWF_LOCATION = "/__rack/WebSocketMain.swf";
